@@ -19,8 +19,8 @@ subtest {
 }, 'accessors';
 
 subtest {
-  my @malformed_string = < 2a 17A _a $a $A _D a2@ Иван >;
-  my @good_string = < a2a A17A x_a a$a w_$A u_D >;
+  my @malformed_string = < 2a 17A $a $A  a2@ Иван >;
+  my @good_string = < a2a A17A x_a _a a$a _D w_$A u_D >;
   my Simple_identifier $s;
   $s = Simple_identifier.new;
   for @malformed_string {
