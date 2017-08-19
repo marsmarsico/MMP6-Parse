@@ -17,7 +17,7 @@ method check returns Bool {
 }
 
 sub check (Str:D $contents --> Bool) {
-  my token letter { <[a..zA..Z]>  };
+  my token letter { <[a..zA..Z]> || <[ _ ]>  };
   my token alphanumdollar { <[a..zA..Z]> || <[1234567890]> || <[ $ _ ]> };
   my regex  identifier { ^ <letter>+ <alphanumdollar>* $ };
   if $contents ~~ m/ <identifier> / { True }
