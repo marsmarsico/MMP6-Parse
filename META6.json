@@ -1,0 +1,20 @@
+{
+  "authors" : [
+    "marsmarsico"
+  ],
+  "build-depends" : [ ],
+  "depends" : [ ],
+  "description" : "parser of verilog2001 language",
+  "license" : "GNU general public license v2.0",
+  "name" : "MMP6-Parse",
+  "perl" : "6.c",
+  "provides" : {
+    "Verilog" : "lib/P6Parser/Verilog.pm6",
+    "Test" : "make test"
+  },
+  "resources" : ,
+  "source-url" : "https://github.com/marsmarsico/MMP6-Parse",
+  "tags" : [ ],
+  "test-depends" : [ ],
+  "version" : "1.0"
+}
