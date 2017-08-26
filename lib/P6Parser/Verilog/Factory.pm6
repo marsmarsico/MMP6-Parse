@@ -1,5 +1,6 @@
 use v6.c;
 use Identifier;
+use Stringa;
 
 =begin pod
 
@@ -10,6 +11,10 @@ Factory for objects
 
 =end pod
 
-class Factory {
+role Factory {
 
-} #--------------------- end of class
+method create (
+Str $feed?
+){...}
+
+} #--------------------- end of role

@@ -14,7 +14,7 @@ Targeting Identifiers
 
 =end pod
 
-class IdFactory is Factory {
+class IdFactory does Factory {
 
 method create(
 Str $feed?,

@@ -10,7 +10,7 @@ escaped_identifier ::= \ ( _any_ASCII_character_except_white_space_ )* _white_sp
 =end pod
 
 
-class Escaped_identifier is Identifier {
+class Escaped_identifier does Identifier {
 
 method check returns Bool {
   return &check($.contents)
@@ -28,6 +28,17 @@ sub check (Str:D $contents --> Bool) {
     else { False}
   }
   else { False  }
+}
+
+method check_no_branch {
+  &check_no_branch(@.branch)
+}
+
+sub check_no_branch(
+@branch
+--> Bool
+){
+if @branch.elems != 0 {False} else {True}
 }
 
 } #--------------------- end of class
