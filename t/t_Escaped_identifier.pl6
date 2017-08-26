@@ -14,6 +14,7 @@ can-ok $class, 'new' or bail-out "$class cannot .new";
 subtest {
   my Escaped_identifier $s;
   $s = Escaped_identifier.new('a2a');
+  does-ok $s, Identifier;
   is $s.contents, 'a2a';
   $s.contents = 'h$$$';
   is $s.contents, 'h$$$';
@@ -27,11 +28,19 @@ subtest {
   for @malformed_string {
     $s.contents = $_;
     nok $s.check;
+    ok $s.check_no_branch;
   }
   for @good_string {
     $s.contents = $_;
     ok $s.check;
+    ok $s.check_no_branch;
+
   }
+  my %be = (si=>'a',un=>6);
+  $s.contents = '\A17A ';
+  push $s.branch, %be;
+  ok $s.check;
+  nok $s.check_no_branch;
 }, 'syntax';
 
 

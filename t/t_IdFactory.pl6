@@ -12,6 +12,7 @@ can-ok $class, 'new' or bail-out "$class cannot .new";
 
 subtest {
 my Factory $PF = IdFactory.new();
+does-ok $PF,Factory;
 my Int @r =<1 1>;
 my Identifier $s = $PF.create("a2a",@r);
 is $s.contents, "a2a";

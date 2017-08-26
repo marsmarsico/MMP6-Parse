@@ -26,11 +26,18 @@ subtest {
   for @malformed_string {
     $s.contents = $_;
     nok $s.check;
+    ok $s.check_no_branch;
   }
   for @good_string {
     $s.contents = $_;
     ok $s.check;
+    ok $s.check_no_branch;
   }
+  my %be = (si=>'a',un=>6);
+  $s.contents = 'abba';
+  push $s.branch, %be;
+  ok $s.check;
+  nok $s.check_no_branch;
 }, 'syntax';
 
 
